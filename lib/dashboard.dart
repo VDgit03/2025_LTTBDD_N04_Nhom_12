@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp());
+class dashboard extends StatelessWidget {
+  const dashboard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(height: 610);
+  }
 }
