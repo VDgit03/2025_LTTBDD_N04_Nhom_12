@@ -16,8 +16,8 @@ void return_page(BuildContext context) {
   Navigator.pop(context);
 }
 
-class navigation_dashboard extends StatelessWidget {
-  const navigation_dashboard({super.key});
+class nav_homepage extends StatelessWidget {
+  const nav_homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,5 +33,14 @@ class navigation_dashboard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class nav_register extends StatelessWidget {
+  const nav_register({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }

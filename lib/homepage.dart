@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'navigation.dart';
+import 'nav.dart';
 import 'dashboard.dart';
 
 class Homepage extends StatelessWidget {
@@ -58,7 +58,7 @@ class Homepage extends StatelessWidget {
         ),
       ),
       body: const SingleChildScrollView(
-        child: Column(children: [dashboard(), navigation_dashboard()]),
+        child: Column(children: [dashboard(), nav_homepage()]),
       ),
     );
   }

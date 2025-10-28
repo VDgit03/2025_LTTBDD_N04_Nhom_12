@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_ck/dashboard.dart';
-import 'homepage.dart';
+
+import 'auth/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'To do list',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: Homepage(),
+      home: Register(),
     );
   }
 }
