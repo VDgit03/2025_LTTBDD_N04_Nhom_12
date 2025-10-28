@@ -48,6 +48,7 @@ class MY_page_home extends StatelessWidget {
                 style: TextStyle(fontSize: 30),
               ),
             ),
+            // link trang chủ 
             ListTile(
               leading: Icon(Icons.home),
               title: Text('Trang chủ'),
@@ -67,11 +68,12 @@ class MY_page_home extends StatelessWidget {
                 );
               },
             ),
+            ListTile(),
           ],
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(children: [dashboard(), navigation()]),
+        child: Column(children: [dashboard(), navigation_dashboard()]),
       ),
     );
   }
