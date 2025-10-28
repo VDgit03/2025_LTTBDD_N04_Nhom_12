@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_ck/page.dart';
+import 'package:mobile_ck/ViewPage/page.dart';
 
 void next_page(BuildContext context, Widget man_hinh) {
   Navigator.push(

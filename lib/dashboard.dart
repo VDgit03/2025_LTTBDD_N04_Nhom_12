@@ -5,6 +5,6 @@ class dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(height: 610);
+    return Container(height: 600, width: 600, child: Row());
   }
 }
