@@ -28,6 +28,7 @@ class MY_page_home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 105, 166, 215),
+        toolbarHeight: 100,
         title: Text('To Do List', textAlign: TextAlign.center),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.language))],
       ),
