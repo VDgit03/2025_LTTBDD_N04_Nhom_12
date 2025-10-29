@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_ck/ViewPage/time.dart';
 import 'package:mobile_ck/ViewPage/date.dart';
 import 'package:mobile_ck/ViewPage/crossImage.dart';
+import 'package:mobile_ck/ViewPage/todoList.dart';
 
 class page extends StatelessWidget {
   const page({super.key});
@@ -45,11 +46,11 @@ class page extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(height: 150, color: Colors.blue),
+                          SizedBox(height: 8),
+                          Expanded(child: TodoList()),
+                          SizedBox(height: 20),
                           const SizedBox(height: 20),
-                          Container(height: 150, color: Colors.yellow),
-                          const SizedBox(height: 20),
-                          Container(height: 150, color: Colors.orange),
+                          Container(height: 300, color: Colors.yellow),
                         ],
                       ),
                     ),
