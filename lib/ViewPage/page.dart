@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ck/ViewPage/time.dart';
+import 'package:mobile_ck/ViewPage/date.dart';
+import 'package:mobile_ck/ViewPage/crossImage.dart';
 
 class page extends StatelessWidget {
   const page({super.key});
@@ -20,7 +22,7 @@ class page extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(height: 100, color: Colors.red),
+              DateInputField(),
               SizedBox(height: 20),
               Expanded(
                 child: Row(
@@ -31,15 +33,13 @@ class page extends StatelessWidget {
                       child: Column(
                         children: [
                           Time(),
-                          SizedBox(height: 20),
-
                           const SizedBox(height: 20),
-                          Container(height: 200, color: Colors.green),
+                          const CrossImage(),
                         ],
                       ),
                     ),
-                    const SizedBox(width: 20),
 
+                    const SizedBox(width: 20),
                     Expanded(
                       flex: 2,
                       child: Column(
