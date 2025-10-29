@@ -12,10 +12,6 @@ void next_page(BuildContext context, Widget man_hinh) {
   );
 }
 
-void return_page(BuildContext context) {
-  Navigator.pop(context);
-}
-
 class nav_homepage extends StatelessWidget {
   const nav_homepage({super.key});
 
