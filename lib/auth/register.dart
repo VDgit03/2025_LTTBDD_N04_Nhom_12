@@ -13,9 +13,11 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  //lấy dữ liệu
   final USController = TextEditingController();
   final PWController = TextEditingController();
 
+  //thực hiện khi ấn đăng kí
   void register() {
     setState(() {
       savedUS = USController.text;
@@ -71,12 +73,12 @@ class _RegisterState extends State<Register> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const Login()),
+                  MaterialPageRoute(builder: (context) => Login()),
                 );
               },
               child: const Text(
@@ -84,7 +86,7 @@ class _RegisterState extends State<Register> {
                 style: TextStyle(fontSize: 16, color: Colors.black),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             ElevatedButton(
               onPressed: register,
               style: ElevatedButton.styleFrom(
@@ -93,7 +95,10 @@ class _RegisterState extends State<Register> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: Text('Đăng kí', style: TextStyle(fontSize: 17)),
+              child: Text(
+                'Đăng kí',
+                style: TextStyle(fontSize: 17, color: Colors.black),
+              ),
             ),
           ],
         ),

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class dashboard extends StatelessWidget {
-  const dashboard({super.key});
+class Dashboard extends StatelessWidget {
+  final String username;
+  const Dashboard({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
-    return Container(height: 600, width: 600, child: Row());
+    return Container(
+      height: 600,
+      width: 600,
+      child: Row(children: [Text('Xin chào, $username!')]),
+    );
   }
 }

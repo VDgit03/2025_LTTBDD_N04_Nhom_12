@@ -3,7 +3,8 @@ import 'nav.dart';
 import 'dashboard.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+  final String username;
+  const Homepage({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +58,13 @@ class Homepage extends StatelessWidget {
           ],
         ),
       ),
-      body: const SingleChildScrollView(
-        child: Column(children: [dashboard(), nav_homepage()]),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Dashboard(username: username),
+            nav_homepage(),
+          ],
+        ),
       ),
     );
   }
