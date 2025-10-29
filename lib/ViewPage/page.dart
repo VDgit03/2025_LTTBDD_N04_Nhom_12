@@ -46,11 +46,10 @@ class page extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 8),
                           Expanded(child: TodoList()),
                           SizedBox(height: 20),
                           const SizedBox(height: 20),
-                          Container(height: 300, color: Colors.yellow),
+                          Container(height: 200, color: Colors.yellow),
                         ],
                       ),
                     ),

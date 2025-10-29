@@ -1,24 +1,5 @@
 import 'package:flutter/material.dart';
 
-// class TodoList extends StatelessWidget {
-//   const TodoList({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final tasks = ['Task 1', 'Task 2', 'Task 3'];
-//     return ListView.builder(
-//       itemCount: tasks.length,
-//       itemBuilder: (context, index) => Card(
-//         margin: const EdgeInsets.symmetric(vertical: 8),
-//         child: ListTile(
-//           title: Text(tasks[index]),
-//           trailing: Icon(Icons.check_box_outline_blank),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 class TodoList extends StatefulWidget {
   const TodoList({super.key});
 
@@ -47,7 +28,15 @@ class _TodoListState extends State<TodoList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16), // cách lề trong
+      decoration: BoxDecoration(
+        color: Colors.white, // nền trắng (tùy chỉnh)
+        borderRadius: BorderRadius.circular(12), // bo góc
+        border: Border.all(
+          color: const Color.fromARGB(255, 126, 153, 200), // màu viền
+          width: 2, // độ dày viền
+        ),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -83,7 +72,8 @@ class _TodoListState extends State<TodoList> {
           SizedBox(height: 10),
 
           // danh sach cong viec
-          Expanded(
+          Container(
+            height: 120,
             child: ListView.builder(
               itemCount: _tasks.length,
               itemBuilder: (context, index) {
