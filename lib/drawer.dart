@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_ck/auth/register.dart';
+import 'package:mobile_ck/homepage.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -27,7 +29,12 @@ class MyDrawer extends StatelessWidget {
             title: Text('Trang chủ'),
             onTap: () {
               // Đóng Drawer lại
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Homepage(username: savedUS!),
+                ),
+              );
               // Có thể thêm điều hướng tới Home nếu có nhiều trang
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
