@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'register.dart';
-import 'package:mobile_ck/homepage.dart';
+import 'package:mobile_ck/Home/homepage.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -38,6 +38,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Đăng nhập'),
+        toolbarHeight: 100,
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 105, 166, 215),
         titleTextStyle: TextStyle(

@@ -36,6 +36,7 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Đăng kí tài khoản'),
+        toolbarHeight: 100,
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 105, 166, 215),
         elevation: 6,
@@ -45,7 +46,7 @@ class _RegisterState extends State<Register> {
           color: const Color.fromARGB(255, 56, 56, 56),
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
         ),
       ),
       body: Padding(
