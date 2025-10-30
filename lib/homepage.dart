@@ -11,8 +11,8 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 105, 166, 215),
-        toolbarHeight: 60,
+        backgroundColor: Color.fromARGB(255, 105, 166, 215),
+        toolbarHeight: 100,
         title: Text('To Do List'),
         titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
 
