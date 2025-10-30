@@ -20,7 +20,7 @@ class nav_homepage extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomRight,
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.only(top: 580, right: 20, bottom: 20),
         child: ElevatedButton(
           onPressed: () {
             next_page(context, page());

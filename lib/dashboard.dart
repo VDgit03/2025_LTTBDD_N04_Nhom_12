@@ -7,9 +7,13 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600,
-      width: 600,
-      child: Row(children: [Text('Xin chào, $username!')]),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Xin chào, $username!', style: TextStyle(fontSize: 25)),
+        ],
+      ),
     );
   }
 }
