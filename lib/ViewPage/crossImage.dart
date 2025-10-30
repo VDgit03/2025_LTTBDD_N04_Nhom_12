@@ -12,7 +12,7 @@ class CrossImage extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 400,
+      height: 610,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: images.length,

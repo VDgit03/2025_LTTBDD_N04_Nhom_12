@@ -27,6 +27,12 @@ class _TodoListState extends State<TodoList> {
     });
   }
 
+  void _removeTask(int index) {
+    setState(() {
+      _data.tasks.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -62,7 +68,7 @@ class _TodoListState extends State<TodoList> {
               suffixIcon: IconButton(
                 icon: const Icon(
                   Icons.add_circle,
-                  color: Colors.blue,
+                  color: Colors.blueGrey,
                   size: 30,
                 ),
                 onPressed: _addTask,
@@ -71,36 +77,44 @@ class _TodoListState extends State<TodoList> {
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
+            onSubmitted: (_) => _addTask(), // nhan enter de them
           ),
-
-          SizedBox(height: 10),
-
-          // danh sach cong viec
-          Container(
-            height: 150,
+          const SizedBox(height: 10),
+          Expanded(
             child: ListView.builder(
               itemCount: _data.tasks.length,
               itemBuilder: (context, index) {
                 final task = _data.tasks[index];
-                return Card(
-                  margin: const EdgeInsets.symmetric(vertical: 4),
-                  child: ListTile(
-                    title: Text(
-                      task['title'],
-                      style: TextStyle(
-                        decoration: _data.tasks[index]['done']
-                            ? TextDecoration.lineThrough
-                            : TextDecoration.none,
+                return Dismissible(
+                  key: Key(task['title']),
+                  direction: DismissDirection.endToStart,
+                  background: Container(
+                    color: Colors.red,
+                    alignment: Alignment.centerRight,
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: const Icon(Icons.delete, color: Colors.white),
+                  ),
+                  onDismissed: (_) => _removeTask(index),
+                  child: Card(
+                    margin: const EdgeInsets.symmetric(vertical: 4),
+                    child: ListTile(
+                      title: Text(
+                        task['title'],
+                        style: TextStyle(
+                          decoration: _data.tasks[index]['done']
+                              ? TextDecoration.lineThrough
+                              : TextDecoration.none,
+                        ),
                       ),
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(
-                        task['done']
-                            ? Icons.check_box
-                            : Icons.check_box_outline_blank,
-                        color: task['done'] ? Colors.green : Colors.grey,
+                      trailing: IconButton(
+                        icon: Icon(
+                          task['done']
+                              ? Icons.check_box
+                              : Icons.check_box_outline_blank,
+                          color: task['done'] ? Colors.green : Colors.grey,
+                        ),
+                        onPressed: () => _toggleTask(index),
                       ),
-                      onPressed: () => _toggleTask(index),
                     ),
                   ),
                 );

@@ -10,4 +10,13 @@ class SaveData {
   List<Map<String, dynamic>> tasks = [];
 
   final TextEditingController selectedDate = TextEditingController();
+
+  String diary = "";
+  void saveDiary(String text) {
+    diary = text;
+  }
+
+  void clearDiary() {
+    diary = "";
+  }
 }

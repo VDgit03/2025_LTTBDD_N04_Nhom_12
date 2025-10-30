@@ -54,6 +54,7 @@ class _TimeState extends State<Time> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 70,
       padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.blueGrey,
