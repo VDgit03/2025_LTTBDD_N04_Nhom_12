@@ -30,7 +30,7 @@ class _TodoListState extends State<TodoList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 285,
       padding: const EdgeInsets.all(16), // cách lề trong
       decoration: BoxDecoration(
         color: Colors.white, // nền trắng (tùy chỉnh)
@@ -58,9 +58,13 @@ class _TodoListState extends State<TodoList> {
           TextField(
             controller: _controller,
             decoration: InputDecoration(
-              hintText: 'Nhap cong viec moi',
+              hintText: 'To do something...',
               suffixIcon: IconButton(
-                icon: const Icon(Icons.send, color: Colors.blue),
+                icon: const Icon(
+                  Icons.add_circle,
+                  color: Colors.blue,
+                  size: 30,
+                ),
                 onPressed: _addTask,
               ),
               border: OutlineInputBorder(

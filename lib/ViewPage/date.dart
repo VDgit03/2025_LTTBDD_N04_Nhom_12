@@ -34,9 +34,10 @@ class _DateInputFieldState extends State<DateInputField> {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
+      height: 60,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: Colors.lightBlueAccent,
+        color: Colors.blueGrey,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: const Color.fromARGB(255, 5, 21, 51)),
       ),
@@ -54,7 +55,7 @@ class _DateInputFieldState extends State<DateInputField> {
               ],
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 20,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -69,7 +70,11 @@ class _DateInputFieldState extends State<DateInputField> {
 
           // Nút lịch để chọn ngày
           IconButton(
-            icon: const Icon(Icons.calendar_today, color: Colors.white),
+            icon: const Icon(
+              Icons.calendar_today,
+              color: Colors.white,
+              size: 25,
+            ),
             onPressed: () => _selectDate(context),
           ),
         ],

@@ -56,18 +56,22 @@ class _TimeState extends State<Time> {
     return Container(
       padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.lightBlueAccent,
+        color: Colors.blueGrey,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: const Color.fromARGB(255, 5, 21, 51)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.access_time, size: 32),
+          Icon(Icons.access_time, size: 35, color: Colors.white),
           SizedBox(width: 8),
           Text(
             _timeString,
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
