@@ -4,10 +4,11 @@ import 'package:mobile_ck/ViewPage/date.dart';
 import 'package:mobile_ck/ViewPage/crossImage.dart';
 import 'package:mobile_ck/ViewPage/todoList.dart';
 import 'package:mobile_ck/ViewPage/daily.dart';
-import 'package:mobile_ck/drawer.dart';
+import 'package:mobile_ck/Home/drawer.dart';
 
 class page extends StatelessWidget {
-  const page({super.key});
+  final String username;
+  const page({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class page extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 105, 166, 215),
           centerTitle: true,
         ),
-        drawer: MyDrawer(),
+        drawer: MyDrawer(username: username),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
           child: Column(

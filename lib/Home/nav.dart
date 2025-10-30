@@ -13,7 +13,8 @@ void next_page(BuildContext context, Widget man_hinh) {
 }
 
 class nav_homepage extends StatelessWidget {
-  const nav_homepage({super.key});
+  final String username;
+  const nav_homepage({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class nav_homepage extends StatelessWidget {
         padding: EdgeInsets.only(top: 550, right: 20, bottom: 20),
         child: ElevatedButton(
           onPressed: () {
-            next_page(context, page());
+            next_page(context, page(username: username));
           },
           child: Icon(Icons.arrow_forward),
         ),
