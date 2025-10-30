@@ -57,7 +57,8 @@ class _TimeState extends State<Time> {
       padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.lightBlueAccent,
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: const Color.fromARGB(255, 5, 21, 51)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

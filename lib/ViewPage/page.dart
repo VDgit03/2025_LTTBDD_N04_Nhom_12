@@ -3,6 +3,7 @@ import 'package:mobile_ck/ViewPage/time.dart';
 import 'package:mobile_ck/ViewPage/date.dart';
 import 'package:mobile_ck/ViewPage/crossImage.dart';
 import 'package:mobile_ck/ViewPage/todoList.dart';
+import 'package:mobile_ck/ViewPage/daily.dart';
 
 class page extends StatelessWidget {
   const page({super.key});
@@ -15,46 +16,45 @@ class page extends StatelessWidget {
         appBar: AppBar(
           title: Text('Page 1', textAlign: TextAlign.center),
           toolbarHeight: 100,
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: const Color.fromARGB(255, 105, 166, 215),
           centerTitle: true,
         ),
-        body: Padding(
+        body: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DateInputField(),
+              Center(child: DateInputField()),
               SizedBox(height: 20),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: [
-                          Time(),
-                          const SizedBox(height: 20),
-                          const CrossImage(),
-                        ],
-                      ),
-                    ),
 
-                    const SizedBox(width: 20),
-                    Expanded(
-                      flex: 2,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(child: TodoList()),
-                          SizedBox(height: 20),
-                          const SizedBox(height: 20),
-                          Container(height: 200, color: Colors.yellow),
-                        ],
-                      ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      children: [
+                        Time(),
+                        const SizedBox(height: 20),
+                        const CrossImage(),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+
+                  const SizedBox(width: 20),
+
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TodoList(),
+                        const SizedBox(height: 40),
+                        Daily(),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

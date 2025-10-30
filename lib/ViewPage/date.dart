@@ -33,13 +33,13 @@ class _DateInputFieldState extends State<DateInputField> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 200,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: Colors.orangeAccent,
+        color: Colors.lightBlueAccent,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.redAccent),
+        border: Border.all(color: const Color.fromARGB(255, 5, 21, 51)),
       ),
-      width: 170,
       child: Row(
         children: [
           // Ô nhập ngày
