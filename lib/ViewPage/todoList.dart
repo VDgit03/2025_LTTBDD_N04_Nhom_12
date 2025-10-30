@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'SaveData.dart';
 
 class TodoList extends StatefulWidget {
   const TodoList({super.key});
@@ -10,18 +11,19 @@ class TodoList extends StatefulWidget {
 class _TodoListState extends State<TodoList> {
   final TextEditingController _controller = TextEditingController();
   final List<Map<String, dynamic>> _tasks = [];
+  final _data = SaveData();
 
   void _addTask() {
     if (_controller.text.trim().isEmpty) return;
     setState(() {
-      _tasks.add({'title': _controller.text.trim(), 'done': false});
+      _data.tasks.add({'title': _controller.text.trim(), 'done': false});
       _controller.clear();
     });
   }
 
   void _toggleTask(int index) {
     setState(() {
-      _tasks[index]['done'] = !_tasks[index]['done'];
+      _data.tasks[index]['done'] = !_data.tasks[index]['done'];
     });
   }
 
@@ -75,16 +77,16 @@ class _TodoListState extends State<TodoList> {
           Container(
             height: 120,
             child: ListView.builder(
-              itemCount: _tasks.length,
+              itemCount: _data.tasks.length,
               itemBuilder: (context, index) {
-                final task = _tasks[index];
+                final task = _data.tasks[index];
                 return Card(
                   margin: const EdgeInsets.symmetric(vertical: 4),
                   child: ListTile(
                     title: Text(
                       task['title'],
                       style: TextStyle(
-                        decoration: _tasks[index]['done']
+                        decoration: _data.tasks[index]['done']
                             ? TextDecoration.lineThrough
                             : TextDecoration.none,
                       ),

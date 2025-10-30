@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart'; // để format ngày
+import 'SaveData.dart';
 
 class DateInputField extends StatefulWidget {
   const DateInputField({super.key});
@@ -10,8 +11,7 @@ class DateInputField extends StatefulWidget {
 }
 
 class _DateInputFieldState extends State<DateInputField> {
-  final TextEditingController _controller =
-      TextEditingController(); // điều khiển ô nhập
+  final _data = SaveData();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -25,16 +25,9 @@ class _DateInputFieldState extends State<DateInputField> {
     if (picked != null) {
       final formattedDate = DateFormat('dd/MM/yyyy').format(picked);
       setState(() {
-        _controller.text = formattedDate; // tự điền vào ô nhập
+        _data.selectedDate.text = formattedDate; // tự điền vào ô nhập
       });
     }
-  }
-
-  // Giải phóng bộ nhớ
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 
   @override
@@ -52,7 +45,7 @@ class _DateInputFieldState extends State<DateInputField> {
           // Ô nhập ngày
           Expanded(
             child: TextField(
-              controller: _controller,
+              controller: _data.selectedDate,
               keyboardType: TextInputType.number,
               maxLength: 10,
               inputFormatters: [
