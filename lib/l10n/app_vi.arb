@@ -1,0 +1,39 @@
+{
+  "username": "Tên đăng nhập",
+  "password": "Mật khẩu",
+
+  "register": "Đăng kí",
+  "text_register": "Đã có tài khoản? Đăng nhập ngay",
+  "button_register": "Đăng kí",
+  "register_successful": "Đăng kí thành công",
+
+  "login": "Đăng nhập",
+  "text_login": "Chưa có tài khoản? Đăng kí ngay",
+  "button_login": "Đăng nhập",
+  "login_successful": "Đăng nhập thành công",
+  "login_incorrect": "Sai tên đăng nhập hoặc mật khẩu! Vui lòng thử lại",
+
+  "homepage":"Trang chủ",
+  "text_db": "Đã tới trang chủ",
+
+  "hello": "xin chào, {username}",
+  "@hello": {
+    "description": "Chào thân thiện người dùng",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "list": "Danh sách công việc",
+
+  "settings": "Cài đặt",
+  "text_st": "Đã tới cài đặt",
+  "about": "Giới thiệu",
+  "text_about": "Giới thiệu về app",
+  "logout": "Đăng xuất",
+  "text_logout": "Đăng xuất thành công",
+
+  "language": "Ngôn ngữ",
+  "theme": "Giao diện"
+}

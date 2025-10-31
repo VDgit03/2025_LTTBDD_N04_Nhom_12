@@ -1,0 +1,41 @@
+{
+  "username": "Username",
+  "password": "Password",
+
+  "register": "Register",
+  "text_register": "Login",
+  "button_register": "Register",
+  "register_successful": "Registration Successful",
+
+  "login": "Login",
+  "text_login": "Register",
+  "button_login": "Login",
+  "login_successful": "Login successful",
+  "login_incorrect": "Incorrect username or password! Please try again",
+
+
+  "homepage":"Dashboard",
+  "text_db": "Dashboard",
+
+  "hello": "Hello, {username}",
+  "@hello": {
+    "description": "Friendly greeting to the user",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "list": "To Do List",
+
+
+  "settings": "Setting",
+  "text_st": "Setting",
+  "about": "About us",
+  "text_about": "About Us",
+  "logout": "Logout",
+  "text_logout": "Logout Successful",
+  
+  "language": "Language",
+  "theme": "Theme"
+}
