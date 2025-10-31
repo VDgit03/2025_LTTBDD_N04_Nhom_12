@@ -25,18 +25,33 @@ class _RegisterState extends State<Register> {
       savedPW = PWController.text;
     });
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        backgroundColor: Color.fromARGB(255, 105, 166, 215),
-        content: Text(
-          AppLocalizations.of(context)!.register_successful,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18, color: Colors.black),
+    // Kiểm tra nếu người dùng để trống
+    if (savedUS.isEmpty || savedPW.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.redAccent,
+          content: Text(
+            'Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu!',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 18, color: Colors.white),
+          ),
         ),
-      ),
-    );
+      );
+      return; //dừng lại, không cho đăng ký
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Color.fromARGB(255, 105, 166, 215),
+          content: Text(
+            AppLocalizations.of(context)!.register_successful,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 18, color: Colors.black),
+          ),
+        ),
+      );
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+    }
   }
 
   @override
