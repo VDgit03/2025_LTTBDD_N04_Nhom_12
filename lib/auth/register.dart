@@ -27,7 +27,12 @@ class _RegisterState extends State<Register> {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(AppLocalizations.of(context)!.register_successful),
+        backgroundColor: Color.fromARGB(255, 105, 166, 215),
+        content: Text(
+          AppLocalizations.of(context)!.register_successful,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 18, color: Colors.black),
+        ),
       ),
     );
 

@@ -15,7 +15,8 @@ class _LoginState extends State<Login> {
   final PWController = TextEditingController();
   void login() {
     //kiểm tra username, password
-    if (USController.text == savedUS && PWController.text == savedPW) {
+    if (USController.text.trim() == savedUS &&
+        PWController.text.trim() == savedPW) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Homepage(username: savedUS)),
