@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ck/Home/homepage.dart';
 import 'package:mobile_ck/auth/login.dart';
-import 'package:mobile_ck/auth/register.dart';
+
 import 'setting.dart';
 import 'about.dart';
 import 'package:mobile_ck/l10n/app_localizations.dart';
@@ -42,7 +42,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Homepage(username: savedUS!),
+                  builder: (context) => Homepage(username: username),
                 ),
               );
               // Có thể thêm điều hướng tới Home nếu có nhiều trang
@@ -68,7 +68,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Setting(username: savedUS!),
+                  builder: (context) => Setting(username: username),
                 ),
               );
               ScaffoldMessenger.of(context).showSnackBar(
@@ -93,7 +93,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => About(username: savedUS!),
+                  builder: (context) => About(username: username),
                 ),
               );
               ScaffoldMessenger.of(context).showSnackBar(

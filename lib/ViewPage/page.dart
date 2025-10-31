@@ -5,7 +5,6 @@ import 'package:mobile_ck/ViewPage/crossImage.dart';
 import 'package:mobile_ck/ViewPage/todoList.dart';
 import 'package:mobile_ck/ViewPage/diary.dart';
 import 'package:mobile_ck/Home/drawer.dart';
-import 'package:mobile_ck/auth/register.dart';
 
 class page extends StatelessWidget {
   final String username;
@@ -13,63 +12,61 @@ class page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Page 1',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 56, 56, 56),
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Page 1',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 56, 56, 56),
           ),
-          toolbarHeight: 100,
-          backgroundColor: const Color.fromARGB(255, 105, 166, 215),
-          centerTitle: true,
         ),
-        drawer: MyDrawer(username: savedUS!),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(child: DateInputField()),
-              SizedBox(height: 10),
-
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        Time(),
-                        const SizedBox(height: 10),
-                        const CrossImage(),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(width: 10),
-
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TodoList(),
-                        const SizedBox(height: 10),
-                        Diary(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
+        toolbarHeight: 100,
+        backgroundColor: const Color.fromARGB(255, 105, 166, 215),
+        centerTitle: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.vertical(
+            bottom: Radius.circular(12),
           ),
+        ),
+      ),
+      drawer: MyDrawer(username: username),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(child: DateInputField()),
+            SizedBox(height: 10),
+
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    children: [
+                      Time(),
+                      const SizedBox(height: 10),
+                      const CrossImage(),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(width: 10),
+
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [TodoList(), const SizedBox(height: 10), Diary()],
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

@@ -3,12 +3,11 @@ import 'login.dart';
 import 'package:mobile_ck/l10n/app_localizations.dart';
 
 //biến toàn cục để lưu username, password
-String? savedUS;
-String? savedPW;
+String savedUS = '';
+String savedPW = '';
 
 class Register extends StatefulWidget {
-  final String username;
-  const Register({super.key, required this.username});
+  const Register({super.key});
 
   @override
   State<Register> createState() => _RegisterState();

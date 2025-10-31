@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      home: Register(username: savedUS!),
+      home: Register(),
     );
   }
 }

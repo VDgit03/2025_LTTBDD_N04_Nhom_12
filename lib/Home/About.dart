@@ -4,7 +4,7 @@ import 'drawer.dart';
 
 class About extends StatelessWidget {
   final String username;
-  const About({super.key, required this.username});
+  const About({super.key, this.username = ''});
 
   @override
   Widget build(BuildContext context) {

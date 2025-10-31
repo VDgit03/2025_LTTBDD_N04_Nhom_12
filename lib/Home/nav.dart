@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ck/ViewPage/page.dart';
+import 'package:mobile_ck/auth/register.dart';
 
 void next_page(BuildContext context, Widget man_hinh) {
   Navigator.push(
@@ -24,7 +25,7 @@ class nav_homepage extends StatelessWidget {
         padding: EdgeInsets.only(top: 480, right: 20, bottom: 20),
         child: ElevatedButton(
           onPressed: () {
-            next_page(context, page(username: username));
+            next_page(context, page(username: savedUS));
           },
           child: Icon(Icons.arrow_forward),
         ),

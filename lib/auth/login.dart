@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
     if (USController.text == savedUS && PWController.text == savedPW) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Homepage(username: savedUS!)),
+        MaterialPageRoute(builder: (context) => Homepage(username: savedUS)),
       );
     } else {
       //sai thì báo lỗi
@@ -83,9 +83,7 @@ class _LoginState extends State<Login> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => Register(username: savedUS!),
-                  ),
+                  MaterialPageRoute(builder: (context) => Register()),
                 );
               },
               child: Text(
