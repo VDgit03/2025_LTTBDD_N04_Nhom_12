@@ -5,6 +5,7 @@ import 'package:mobile_ck/ViewPage/crossImage.dart';
 import 'package:mobile_ck/ViewPage/todoList.dart';
 import 'package:mobile_ck/ViewPage/diary.dart';
 import 'package:mobile_ck/Home/drawer.dart';
+import 'package:mobile_ck/auth/register.dart';
 
 class page extends StatelessWidget {
   final String username;
@@ -29,7 +30,7 @@ class page extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 105, 166, 215),
           centerTitle: true,
         ),
-        drawer: MyDrawer(username: username),
+        drawer: MyDrawer(username: savedUS!),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
           child: Column(

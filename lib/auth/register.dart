@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'package:mobile_ck/l10n/app_localizations.dart';
 
 //biến toàn cục để lưu username, password
 String? savedUS;
 String? savedPW;
 
 class Register extends StatefulWidget {
-  const Register({super.key});
+  final String username;
+  const Register({super.key, required this.username});
 
   @override
   State<Register> createState() => _RegisterState();
@@ -24,9 +26,11 @@ class _RegisterState extends State<Register> {
       savedPW = PWController.text;
     });
 
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Đăng kí thành công')));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(AppLocalizations.of(context)!.register_successful),
+      ),
+    );
 
     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
@@ -35,7 +39,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Đăng kí tài khoản'),
+        title: Text(AppLocalizations.of(context)!.register),
         toolbarHeight: 100,
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 105, 166, 215),
@@ -56,7 +60,7 @@ class _RegisterState extends State<Register> {
             TextField(
               controller: USController,
               decoration: InputDecoration(
-                labelText: 'Tên đăng nhập',
+                labelText: AppLocalizations.of(context)!.username,
                 prefixIcon: Icon(Icons.person),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -67,7 +71,7 @@ class _RegisterState extends State<Register> {
             TextField(
               controller: PWController,
               decoration: InputDecoration(
-                labelText: 'Mật khẩu',
+                labelText: AppLocalizations.of(context)!.password,
                 prefixIcon: Icon(Icons.lock),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -82,8 +86,8 @@ class _RegisterState extends State<Register> {
                   MaterialPageRoute(builder: (context) => Login()),
                 );
               },
-              child: const Text(
-                'Đã có tài khoản? Đăng nhập ngay',
+              child: Text(
+                AppLocalizations.of(context)!.text_register,
                 style: TextStyle(fontSize: 16, color: Colors.black),
               ),
             ),
@@ -97,7 +101,7 @@ class _RegisterState extends State<Register> {
                 ),
               ),
               child: Text(
-                'Đăng kí',
+                AppLocalizations.of(context)!.button_register,
                 style: TextStyle(fontSize: 17, color: Colors.black),
               ),
             ),

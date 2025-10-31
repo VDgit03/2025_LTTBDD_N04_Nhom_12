@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'register.dart';
 import 'package:mobile_ck/Home/homepage.dart';
+import 'package:mobile_ck/l10n/app_localizations.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -25,7 +26,7 @@ class _LoginState extends State<Login> {
         SnackBar(
           backgroundColor: Color.fromARGB(255, 105, 166, 215),
           content: Text(
-            'Sai tên đăng nhập hoặc mật khẩu! Vui lòng nhập lại!',
+            AppLocalizations.of(context)!.login_incorrect,
             style: TextStyle(fontSize: 17, color: Colors.black),
           ),
         ),
@@ -37,7 +38,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Đăng nhập'),
+        title: Text(AppLocalizations.of(context)!.login),
         toolbarHeight: 100,
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 105, 166, 215),
@@ -59,7 +60,7 @@ class _LoginState extends State<Login> {
             TextField(
               controller: USController,
               decoration: InputDecoration(
-                labelText: 'Tên đăng nhập',
+                labelText: AppLocalizations.of(context)!.username,
                 prefixIcon: Icon(Icons.person),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -70,7 +71,7 @@ class _LoginState extends State<Login> {
             TextField(
               controller: PWController,
               decoration: InputDecoration(
-                labelText: 'Mật khẩu',
+                labelText: AppLocalizations.of(context)!.password,
                 prefixIcon: Icon(Icons.lock),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -82,11 +83,13 @@ class _LoginState extends State<Login> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Register()),
+                  MaterialPageRoute(
+                    builder: (context) => Register(username: savedUS!),
+                  ),
                 );
               },
               child: Text(
-                'Chưa có tài khoản? Đăng kí ngay!',
+                AppLocalizations.of(context)!.text_login,
                 style: TextStyle(fontSize: 16, color: Colors.black),
               ),
             ),
@@ -100,7 +103,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
               child: Text(
-                'Đăng nhập',
+                AppLocalizations.of(context)!.button_login,
                 style: TextStyle(fontSize: 17, color: Colors.black),
               ),
             ),

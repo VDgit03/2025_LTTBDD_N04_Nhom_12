@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'nav.dart';
 import 'dashboard.dart';
 import 'drawer.dart';
+import 'package:mobile_ck/l10n/app_localizations.dart';
 
 class Homepage extends StatelessWidget {
   final String username;
@@ -14,7 +15,8 @@ class Homepage extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 105, 166, 215),
         elevation: 6,
         toolbarHeight: 100,
-        title: Text('To Do List'),
+        title: Text(AppLocalizations.of(context)!.homepage),
+
         titleTextStyle: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 30,
@@ -24,10 +26,6 @@ class Homepage extends StatelessWidget {
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
         ),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.language)),
-          Padding(padding: EdgeInsets.only(right: 10)),
-        ],
       ),
       drawer: MyDrawer(username: username),
       body: SingleChildScrollView(

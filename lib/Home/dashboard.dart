@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_ck/l10n/app_localizations.dart';
 
 class Dashboard extends StatelessWidget {
   final String username;
@@ -10,13 +11,16 @@ class Dashboard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('Xin chào, $username', style: TextStyle(fontSize: 25)),
+          Text(
+            AppLocalizations.of(context)!.hello(username),
+            style: TextStyle(fontSize: 25),
+          ),
           Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.topCenter,
             child: Padding(
-              padding: EdgeInsetsGeometry.only(left: 15, top: 20),
+              padding: EdgeInsets.only(top: 20),
               child: Text(
-                'My List',
+                AppLocalizations.of(context)!.list,
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ),

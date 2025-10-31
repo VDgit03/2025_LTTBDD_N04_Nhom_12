@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ck/Home/homepage.dart';
 import 'package:mobile_ck/auth/login.dart';
-import 'Setting.dart';
-import 'About.dart';
+import 'package:mobile_ck/auth/register.dart';
+import 'setting.dart';
+import 'about.dart';
+import 'package:mobile_ck/l10n/app_localizations.dart';
 
 class MyDrawer extends StatelessWidget {
   final String username;
@@ -33,14 +35,14 @@ class MyDrawer extends StatelessWidget {
           // link trang chủ
           ListTile(
             leading: Icon(Icons.home),
-            title: Text('Trang chủ'),
+            title: Text(AppLocalizations.of(context)!.homepage),
             onTap: () {
               // Đóng Drawer lại
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Homepage(username: username),
+                  builder: (context) => Homepage(username: savedUS!),
                 ),
               );
               // Có thể thêm điều hướng tới Home nếu có nhiều trang
@@ -48,7 +50,7 @@ class MyDrawer extends StatelessWidget {
                 SnackBar(
                   backgroundColor: Color.fromARGB(255, 105, 166, 215),
                   content: Text(
-                    'Đã tới Trang chủ',
+                    AppLocalizations.of(context)!.text_db,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
@@ -56,20 +58,24 @@ class MyDrawer extends StatelessWidget {
               );
             },
           ),
+
+          //link setting
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Cài đặt'),
+            title: Text(AppLocalizations.of(context)!.settings),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => Setting()),
+                MaterialPageRoute(
+                  builder: (context) => Setting(username: savedUS!),
+                ),
               );
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: Color.fromARGB(255, 105, 166, 215),
                   content: Text(
-                    'Đã tới Cài Đặt',
+                    AppLocalizations.of(context)!.text_st,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
@@ -77,20 +83,24 @@ class MyDrawer extends StatelessWidget {
               );
             },
           ),
+
+          //link giới thiệu
           ListTile(
             leading: Icon(Icons.info),
-            title: Text('Giới thiệu'),
+            title: Text(AppLocalizations.of(context)!.about),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => About()),
+                MaterialPageRoute(
+                  builder: (context) => About(username: savedUS!),
+                ),
               );
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: Color.fromARGB(255, 105, 166, 215),
                   content: Text(
-                    'Đã tới Giới Thiệu',
+                    AppLocalizations.of(context)!.text_about,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
@@ -98,12 +108,14 @@ class MyDrawer extends StatelessWidget {
               );
             },
           ),
+
+          //link logout
           ListTile(
             leading: Icon(Icons.logout),
-            title: Text('Đăng xuất'),
+            title: Text(AppLocalizations.of(context)!.logout),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => Login()),
               );
@@ -111,7 +123,7 @@ class MyDrawer extends StatelessWidget {
                 SnackBar(
                   backgroundColor: Color.fromARGB(255, 105, 166, 215),
                   content: Text(
-                    'Đã đăng xuất',
+                    AppLocalizations.of(context)!.text_logout,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
