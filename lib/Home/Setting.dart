@@ -43,6 +43,8 @@ class _SettingState extends State<Setting> {
             leading: const Icon(Icons.language),
             title: Text(AppLocalizations.of(context)!.language),
             trailing: DropdownButton<String>(
+              underline: SizedBox(),
+              borderRadius: BorderRadius.all(Radius.circular(12)),
               value: selectedLanguage,
               items: const [
                 DropdownMenuItem(
@@ -72,6 +74,8 @@ class _SettingState extends State<Setting> {
             leading: const Icon(Icons.contrast),
             title: Text(AppLocalizations.of(context)!.theme),
             trailing: DropdownButton<String>(
+              underline: SizedBox(),
+              borderRadius: BorderRadius.all(Radius.circular(12)),
               value: selectedTheme,
               items: const [
                 DropdownMenuItem(value: "Light", child: Text("Sáng")),

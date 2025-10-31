@@ -9,9 +9,23 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.about)),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 105, 166, 215),
+        elevation: 6,
+        toolbarHeight: 100,
+        title: Text(AppLocalizations.of(context)!.about),
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 30,
+          color: Color.fromARGB(255, 56, 56, 56),
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
+        ),
+        centerTitle: true,
+      ),
       drawer: MyDrawer(username: username),
-      body: Center(child: Text("About Page: $username")),
+      body: Center(child: Text("")),
     );
   }
 }

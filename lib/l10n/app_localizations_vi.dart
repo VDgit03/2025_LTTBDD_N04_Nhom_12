@@ -49,7 +49,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String hello(String username) {
-    return 'xin chào, $username';
+    return 'Xin chào, $username';
   }
 
   @override
