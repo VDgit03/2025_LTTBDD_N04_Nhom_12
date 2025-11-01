@@ -15,12 +15,22 @@ class Homepage extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 105, 166, 215),
         elevation: 6,
         toolbarHeight: 100,
-        title: Text(AppLocalizations.of(context)!.homepage),
-
-        titleTextStyle: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 30,
-          color: Color.fromARGB(255, 56, 56, 56),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(padding: EdgeInsets.only(left: 40)),
+            Center(
+              child: Text(
+                AppLocalizations.of(context)!.homepage,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Color.fromARGB(255, 56, 56, 56),
+                ),
+              ),
+            ),
+            SizedBox(width: 40),
+          ],
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
@@ -30,6 +40,8 @@ class Homepage extends StatelessWidget {
       drawer: MyDrawer(username: username),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 10),
             Dashboard(username: username),

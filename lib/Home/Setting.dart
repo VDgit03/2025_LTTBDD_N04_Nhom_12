@@ -49,7 +49,7 @@ class _SettingState extends State<Setting> {
               items: [
                 DropdownMenuItem(
                   value: "Vietnamese",
-                  child: Text("Tiếng Việt"),
+                  child: Text("Vietnamese"),
                 ),
                 DropdownMenuItem(value: "English", child: Text("English")),
               ],
