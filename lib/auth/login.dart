@@ -50,6 +50,7 @@ class _LoginState extends State<Login> {
                 height: 140,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
+                  //đổ bóng
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black26,
