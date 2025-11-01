@@ -37,5 +37,15 @@
   "text_logout": "Logout Successful",
   
   "language": "Language",
-  "theme": "Theme"
+  "theme": "Theme",
+
+  "page": "Page {_pageNumber}",
+  "@page":{
+    "description": "number of page ",
+    "placeholders": {
+      "_pageNumber": {
+        "type": "int"
+      }
+    }
+  }
 }

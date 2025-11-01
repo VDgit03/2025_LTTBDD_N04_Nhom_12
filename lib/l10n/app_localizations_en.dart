@@ -78,4 +78,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get theme => 'Theme';
+
+  @override
+  String page(int _pageNumber) {
+    return 'Page $_pageNumber';
+  }
 }

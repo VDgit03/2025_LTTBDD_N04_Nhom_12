@@ -35,5 +35,15 @@
   "text_logout": "Đăng xuất thành công",
 
   "language": "Ngôn ngữ",
-  "theme": "Giao diện"
+  "theme": "Giao diện",
+
+  "page": "Trang {_pageNumber}",
+  "@page":{
+    "description": "số trang",
+    "placeholders": {
+      "_pageNumber": {
+        "type": "int"
+      }
+    }
+  }
 }

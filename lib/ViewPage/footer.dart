@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_ck/l10n/app_localizations.dart';
 
 class Footer extends StatefulWidget {
   final int pageNumber;
@@ -66,8 +67,8 @@ class _FooterState extends State<Footer> {
             ),
           ),
           Text(
-            "  Trang ${_pageNumber}",
-            style: TextStyle(fontSize: 16, color: Colors.white),
+            AppLocalizations.of(context)!.page(_pageNumber),
+            style: TextStyle(fontSize: 16),
           ),
 
           ElevatedButton(

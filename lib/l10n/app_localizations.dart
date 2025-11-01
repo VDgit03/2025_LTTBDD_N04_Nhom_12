@@ -232,6 +232,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Theme'**
   String get theme;
+
+  /// number of page
+  ///
+  /// In en, this message translates to:
+  /// **'Page {_pageNumber}'**
+  String page(int _pageNumber);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

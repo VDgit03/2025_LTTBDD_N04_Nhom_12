@@ -78,4 +78,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get theme => 'Giao diện';
+
+  @override
+  String page(int _pageNumber) {
+    return 'Trang $_pageNumber';
+  }
 }
