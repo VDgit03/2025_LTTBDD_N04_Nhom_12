@@ -51,27 +51,28 @@ class _FooterState extends State<Footer> {
       height: 50,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
-        border: Border(top: BorderSide(color: Colors.grey)),
+        color: Color.fromARGB(255, 105, 166, 215),
+        // border: Border(top: BorderSide(color: Colors.grey)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ElevatedButton.icon(
+          ElevatedButton(
             onPressed: (_previousPage),
-            icon: const Icon(Icons.arrow_back),
-            label: const Text('Quay lại'),
+            child: Icon(Icons.arrow_back),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               foregroundColor: Colors.black,
             ),
           ),
-          Text("  Trang ${_pageNumber}", style: TextStyle(fontSize: 16)),
+          Text(
+            "  Trang ${_pageNumber}",
+            style: TextStyle(fontSize: 16, color: Colors.white),
+          ),
 
-          ElevatedButton.icon(
+          ElevatedButton(
             onPressed: (_nextPage),
-            icon: const Icon(Icons.arrow_forward),
-            label: const Text('Trang kế'),
+            child: Icon(Icons.arrow_forward),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               foregroundColor: Colors.black,
