@@ -6,9 +6,9 @@ class CrossImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<String> images = [
-      'assests/images/0dce76f26a245bbe3422774f024e9d06.jpg',
-      'assests/images/78fb17a85ecef840177b480e63657492.jpg',
-      'assests/images/ff94bd243ba0b15d9e90cb183c45f52e.jpg',
+      'assets/images/0dce76f26a245bbe3422774f024e9d06.jpg',
+      'assets/images/78fb17a85ecef840177b480e63657492.jpg',
+      'assets/images/ff94bd243ba0b15d9e90cb183c45f52e.jpg',
     ];
 
     return SizedBox(

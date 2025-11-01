@@ -25,7 +25,9 @@ class About extends StatelessWidget {
         centerTitle: true,
       ),
       drawer: MyDrawer(username: username),
-      body: Center(child: Text("")),
+      body: SingleChildScrollView(
+        child: Row(children: [Image.asset(''), Text(' ')]),
+      ),
     );
   }
 }
