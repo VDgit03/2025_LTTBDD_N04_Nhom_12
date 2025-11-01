@@ -12,10 +12,28 @@ class _DiaryState extends State<Diary> {
   final TextEditingController _controller = TextEditingController();
   final SaveData _data = SaveData();
 
+  final FocusNode _focusNode = FocusNode();
+  bool _isSaved = true;
+  bool _hasFocus = false;
+
   @override
   void initState() {
     super.initState();
     _controller.text = _data.diary;
+
+    _focusNode.addListener(() {
+      setState(() {
+        _hasFocus = _focusNode.hasFocus;
+      });
+
+      if (!_focusNode.hasFocus) {
+        // Khi rời khỏi ô nhập → tự lưu
+        _data.saveDiary(_controller.text);
+        setState(() {
+          _isSaved = true;
+        });
+      }
+    });
   }
 
   void _saveEntry() {
@@ -25,7 +43,15 @@ class _DiaryState extends State<Diary> {
 
   void _clearDiary() {
     _data.clearDiary();
-    setState(() {});
+    setState(() {
+      _isSaved = true;
+    });
+  }
+
+  void dispose() {
+    _controller.dispose();
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -57,13 +83,7 @@ class _DiaryState extends State<Diary> {
           const SizedBox(height: 8),
 
           // Ô nhập nhật ký
-          Focus(
-            onFocusChange: (hasFocus) {
-              if (!hasFocus) {
-                // Khi rời khỏi ô nhập → tự lưu
-                _saveEntry();
-              }
-            },
+          Expanded(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: 150, maxHeight: 275),
 
@@ -73,11 +93,17 @@ class _DiaryState extends State<Diary> {
                   scrollDirection: Axis.vertical,
                   child: TextField(
                     controller: _controller,
+                    focusNode: _focusNode,
+                    keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    style: TextStyle(color: Colors.black, fontSize: 16),
                     decoration: const InputDecoration(
                       hintText: "Write your thoughts...",
                       border: OutlineInputBorder(),
                     ),
+                    onChanged: (value) => setState(() {
+                      _isSaved = false; // DANG GO THI CHUA LUU
+                    }),
                     onSubmitted: (_) => _saveEntry(), // Enter cũng lưu
                   ),
                 ),
@@ -89,20 +115,22 @@ class _DiaryState extends State<Diary> {
 
           // Danh sách nhật ký có thể vuốt để xóa
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                _data.diary.isEmpty ? "No diary saved yet." : "Diary saved!",
+                _isSaved
+                    ? (_data.diary.isEmpty ? "Chưa có nhật ký" : "Đã lưu")
+                    : "Chưa lưu",
                 style: TextStyle(
-                  color: _data.diary.isEmpty ? Colors.grey : Colors.green,
-                  fontStyle: _data.diary.isEmpty
-                      ? FontStyle.italic
-                      : FontStyle.normal,
+                  color: _isSaved
+                      ? (_data.diary.isEmpty ? Colors.grey : Colors.green)
+                      : Colors.blue,
+                  fontStyle: !_isSaved ? FontStyle.italic : FontStyle.normal,
                 ),
               ),
               IconButton(
                 icon: const Icon(Icons.delete_outline, color: Colors.red),
-                tooltip: "Clear diary",
+                tooltip: "Xóa nhật ký",
                 onPressed: _clearDiary,
               ),
             ],

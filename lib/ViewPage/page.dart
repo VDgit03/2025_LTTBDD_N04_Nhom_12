@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_ck/ViewPage/footer.dart';
 import 'package:mobile_ck/ViewPage/time.dart';
 import 'package:mobile_ck/ViewPage/date.dart';
 import 'package:mobile_ck/ViewPage/crossImage.dart';
@@ -8,14 +9,15 @@ import 'package:mobile_ck/Home/drawer.dart';
 
 class page extends StatelessWidget {
   final String username;
-  const page({super.key, required this.username});
+  final int pageNumber;
+  const page({super.key, required this.username, this.pageNumber = 1});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Page 1',
+          'Chào ngày mới, $username!',
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 24,
@@ -68,6 +70,24 @@ class page extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      // footer
+      bottomNavigationBar: Footer(
+        pageNumber: pageNumber,
+        onPrevious: () {
+          if (pageNumber > 1) {
+            Navigator.pop(context); // Handle previous page action
+          }
+        },
+        onNext: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  page(username: username, pageNumber: pageNumber + 1),
+            ),
+          ); // Handle next page action
+        },
       ),
     );
   }
