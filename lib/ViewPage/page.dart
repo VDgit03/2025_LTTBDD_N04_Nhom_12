@@ -33,12 +33,12 @@ class _pageState extends State<page> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Chào ngày mới, $username!',
+          '💪 Be a better version of yourself than yesterday.',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 56, 56, 56),
+            fontStyle: FontStyle.italic,
           ),
         ),
         toolbarHeight: 100,
