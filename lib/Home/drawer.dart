@@ -45,7 +45,6 @@ class MyDrawer extends StatelessWidget {
                   builder: (context) => Homepage(username: username),
                 ),
               );
-              // Có thể thêm điều hướng tới Home nếu có nhiều trang
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: Color.fromARGB(255, 105, 166, 215),
