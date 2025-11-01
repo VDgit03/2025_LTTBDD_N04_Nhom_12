@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'SaveData.dart';
 
 class TodoList extends StatefulWidget {
-  const TodoList({super.key});
+  final int pageNumber;
+  const TodoList({super.key, required this.pageNumber});
 
   @override
   State<TodoList> createState() => _TodoListState();
@@ -10,26 +11,38 @@ class TodoList extends StatefulWidget {
 
 class _TodoListState extends State<TodoList> {
   final TextEditingController _controller = TextEditingController();
-  final List<Map<String, dynamic>> _tasks = [];
   final _data = SaveData();
 
+  List<Map<String, dynamic>> _tasks = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _tasks = _data.getTasks(widget.pageNumber);
+  }
+
   void _addTask() {
-    if (_controller.text.trim().isEmpty) return;
+    final taskText = _controller.text.trim();
+    if (taskText.isNotEmpty) {
+      setState(() {
+        _tasks.add({'text': taskText, 'done': false});
+        _data.saveTasks(widget.pageNumber, _tasks);
+        _controller.clear();
+      });
+    }
+  }
+
+  void _removeTask(int index) {
     setState(() {
-      _data.tasks.add({'title': _controller.text.trim(), 'done': false});
-      _controller.clear();
+      _tasks.removeAt(index);
+      _data.saveTasks(widget.pageNumber, _tasks);
     });
   }
 
   void _toggleTask(int index) {
     setState(() {
-      _data.tasks[index]['done'] = !_data.tasks[index]['done'];
-    });
-  }
-
-  void _removeTask(int index) {
-    setState(() {
-      _data.tasks.removeAt(index);
+      _tasks[index]['done'] = !_tasks[index]['done'];
+      _data.saveTasks(widget.pageNumber, _tasks);
     });
   }
 
@@ -82,11 +95,11 @@ class _TodoListState extends State<TodoList> {
           const SizedBox(height: 10),
           Expanded(
             child: ListView.builder(
-              itemCount: _data.tasks.length,
+              itemCount: _tasks.length,
               itemBuilder: (context, index) {
-                final task = _data.tasks[index];
+                final task = _tasks[index];
                 return Dismissible(
-                  key: Key(task['title']),
+                  key: Key(task['text']),
                   direction: DismissDirection.endToStart,
                   background: Container(
                     color: Colors.red,
@@ -99,11 +112,12 @@ class _TodoListState extends State<TodoList> {
                     margin: const EdgeInsets.symmetric(vertical: 4),
                     child: ListTile(
                       title: Text(
-                        task['title'],
+                        task['text'],
                         style: TextStyle(
-                          decoration: _data.tasks[index]['done']
+                          decoration: task['done']
                               ? TextDecoration.lineThrough
                               : TextDecoration.none,
+                          color: task['done'] ? Colors.grey : Colors.black,
                         ),
                       ),
                       trailing: IconButton(

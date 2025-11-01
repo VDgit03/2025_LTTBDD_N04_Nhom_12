@@ -4,7 +4,8 @@ import 'package:intl/intl.dart'; // để format ngày
 import 'SaveData.dart';
 
 class DateInputField extends StatefulWidget {
-  const DateInputField({super.key});
+  final int pageNumber;
+  const DateInputField({super.key, required this.pageNumber});
 
   @override
   State<DateInputField> createState() => _DateInputFieldState();
@@ -12,6 +13,7 @@ class DateInputField extends StatefulWidget {
 
 class _DateInputFieldState extends State<DateInputField> {
   final _data = SaveData();
+  final TextEditingController _controller = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -23,11 +25,18 @@ class _DateInputFieldState extends State<DateInputField> {
     );
 
     if (picked != null) {
-      final formattedDate = DateFormat('dd/MM/yyyy').format(picked);
+      final formatted = DateFormat('dd/MM/yyyy').format(picked);
       setState(() {
-        _data.selectedDate.text = formattedDate; // tự điền vào ô nhập
+        _controller.text = formatted;
+        _data.saveDate(widget.pageNumber, formatted); // tự điền vào ô nhập
       });
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.text = _data.getDate(widget.pageNumber);
   }
 
   @override
@@ -46,7 +55,7 @@ class _DateInputFieldState extends State<DateInputField> {
           // Ô nhập ngày
           Expanded(
             child: TextField(
-              controller: _data.selectedDate,
+              controller: _controller,
               keyboardType: TextInputType.number,
               maxLength: 10,
               inputFormatters: [
