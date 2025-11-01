@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'SaveData.dart';
 
 class Diary extends StatefulWidget {
-  const Diary({super.key});
+  final int pageNumber;
+  const Diary({super.key, required this.pageNumber});
 
   @override
   State<Diary> createState() => _DiaryState();
@@ -19,7 +20,7 @@ class _DiaryState extends State<Diary> {
   @override
   void initState() {
     super.initState();
-    _controller.text = _data.diary;
+    _controller.text = _data.getDiary(widget.pageNumber);
 
     _focusNode.addListener(() {
       setState(() {
@@ -28,7 +29,7 @@ class _DiaryState extends State<Diary> {
 
       if (!_focusNode.hasFocus) {
         // Khi rời khỏi ô nhập → tự lưu
-        _data.saveDiary(_controller.text);
+        _data.saveDiary(widget.pageNumber, _controller.text);
         setState(() {
           _isSaved = true;
         });
@@ -37,12 +38,12 @@ class _DiaryState extends State<Diary> {
   }
 
   void _saveEntry() {
-    _data.saveDiary(_controller.text);
+    _data.saveDiary(widget.pageNumber, _controller.text);
     setState(() {});
   }
 
   void _clearDiary() {
-    _data.clearDiary();
+    _data.clearDiary(widget.pageNumber);
     setState(() {
       _isSaved = true;
     });
@@ -119,11 +120,11 @@ class _DiaryState extends State<Diary> {
             children: [
               Text(
                 _isSaved
-                    ? (_data.diary.isEmpty ? "Chưa có nhật ký" : "Đã lưu")
+                    ? (_data.diaries.isEmpty ? "Chưa có nhật ký" : "Đã lưu")
                     : "Chưa lưu",
                 style: TextStyle(
                   color: _isSaved
-                      ? (_data.diary.isEmpty ? Colors.grey : Colors.green)
+                      ? (_data.diaries.isEmpty ? Colors.grey : Colors.green)
                       : Colors.blue,
                   fontStyle: !_isSaved ? FontStyle.italic : FontStyle.normal,
                 ),

@@ -7,10 +7,26 @@ import 'package:mobile_ck/ViewPage/todoList.dart';
 import 'package:mobile_ck/ViewPage/diary.dart';
 import 'package:mobile_ck/Home/drawer.dart';
 
-class page extends StatelessWidget {
+class page extends StatefulWidget {
   final String username;
   final int pageNumber;
-  const page({super.key, required this.username, this.pageNumber = 1});
+
+  const page({super.key, required this.username, required this.pageNumber});
+
+  @override
+  State<page> createState() => _pageState();
+}
+
+class _pageState extends State<page> {
+  late String username;
+  late int pageNumber;
+
+  @override
+  void initState() {
+    super.initState();
+    username = widget.username;
+    pageNumber = widget.pageNumber;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +79,11 @@ class page extends StatelessWidget {
                   flex: 2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [TodoList(), const SizedBox(height: 10), Diary()],
+                    children: [
+                      TodoList(),
+                      const SizedBox(height: 10),
+                      Diary(pageNumber: pageNumber),
+                    ],
                   ),
                 ),
               ],
@@ -76,11 +96,17 @@ class page extends StatelessWidget {
         pageNumber: pageNumber,
         onPrevious: () {
           if (pageNumber > 1) {
-            Navigator.pop(context); // Handle previous page action
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    page(username: username, pageNumber: pageNumber - 1),
+              ),
+            ); // Handle previous page action
           }
         },
         onNext: () {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) =>

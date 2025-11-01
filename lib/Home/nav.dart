@@ -25,7 +25,7 @@ class nav_homepage extends StatelessWidget {
         padding: EdgeInsets.only(top: 480, right: 20, bottom: 20),
         child: ElevatedButton(
           onPressed: () {
-            next_page(context, page(username: savedUS));
+            next_page(context, page(username: savedUS, pageNumber: 1));
           },
           child: Icon(Icons.arrow_forward),
         ),
