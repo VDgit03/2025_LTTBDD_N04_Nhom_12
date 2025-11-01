@@ -56,7 +56,7 @@ class _pageState extends State<page> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: DateInputField()),
+            Center(child: DateInputField(pageNumber: pageNumber)),
             SizedBox(height: 10),
 
             Row(
@@ -80,7 +80,7 @@ class _pageState extends State<page> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TodoList(),
+                      TodoList(pageNumber: pageNumber),
                       const SizedBox(height: 10),
                       Diary(pageNumber: pageNumber),
                     ],
