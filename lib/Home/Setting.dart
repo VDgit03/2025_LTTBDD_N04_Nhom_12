@@ -46,7 +46,7 @@ class _SettingState extends State<Setting> {
               underline: SizedBox(),
               borderRadius: BorderRadius.all(Radius.circular(12)),
               value: selectedLanguage,
-              items: const [
+              items: [
                 DropdownMenuItem(
                   value: "Vietnamese",
                   child: Text("Tiếng Việt"),
@@ -56,7 +56,6 @@ class _SettingState extends State<Setting> {
               onChanged: (value) {
                 setState(() {
                   selectedLanguage = value!;
-
                   if (value == "English") {
                     MyApp.setLocale(context, const Locale('en'));
                   } else {

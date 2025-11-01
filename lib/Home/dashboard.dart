@@ -13,8 +13,6 @@ class Dashboard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 20),
-
             Text(
               AppLocalizations.of(context)!.hello(username),
               style: TextStyle(
