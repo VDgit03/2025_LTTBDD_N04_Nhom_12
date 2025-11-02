@@ -59,14 +59,15 @@ class SaveData {
     dates.remove(pageNumber);
   }
 
-  //
+  //lay danh sach cac trang da co du lieu
   List<int> getPagesWithContent() {
-    final pages = <int>{};
+    final allPages = <int>{};
 
-    pages.addAll(diaries.keys);
-    pages.addAll(tasks.keys);
-    pages.addAll(dates.keys);
+    allPages.addAll(diaries.keys);
+    allPages.addAll(tasks.keys);
+    allPages.addAll(dates.keys);
 
-    return pages.toList()..sort();
+    final sortedPages = allPages.toList()..sort();
+    return sortedPages;
   }
 }
