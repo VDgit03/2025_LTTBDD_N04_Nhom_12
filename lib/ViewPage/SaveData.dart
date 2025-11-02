@@ -6,7 +6,9 @@ class SaveData {
   SaveData._internal();
 
   //quan ly ngay thang
-  // final TextEditingController selectedDate = TextEditingController();
+  final TextEditingController selectedDate = TextEditingController();
+
+  //luu ngay thang theo so trang
   final Map<int, String> dates = {};
 
   //luu todo list theo so trang
@@ -14,6 +16,9 @@ class SaveData {
 
   //luu nhat ky theo so trang
   final Map<int, String> diaries = {};
+
+  //luu so trang
+  final int maxPages = 7;
 
   //phương thức để thêm, lấy và xóa nhật ký
   void saveDiary(int pageNumber, String text) {
@@ -52,5 +57,16 @@ class SaveData {
 
   void clearDate(int pageNumber) {
     dates.remove(pageNumber);
+  }
+
+  //
+  List<int> getPagesWithContent() {
+    final pages = <int>{};
+
+    pages.addAll(diaries.keys);
+    pages.addAll(tasks.keys);
+    pages.addAll(dates.keys);
+
+    return pages.toList()..sort();
   }
 }
