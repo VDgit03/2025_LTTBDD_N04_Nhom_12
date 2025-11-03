@@ -50,6 +50,6 @@
   "date": "Ngày",
   "nodiary": "Chưa có nhật ký",
   "savediary": "Đã lưu",
-  "nosaveddiary": "Not Saved",
-  "removediary": "Remove Diary"
+  "nosaveddiary": "Chưa lưu",
+  "removediary": "Xóa nhật ký"
 }

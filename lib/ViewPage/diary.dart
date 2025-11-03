@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'SaveData.dart';
+import 'package:mobile_ck/l10n/app_localizations.dart';
 
 class Diary extends StatefulWidget {
   final int pageNumber;
@@ -121,8 +122,10 @@ class _DiaryState extends State<Diary> {
             children: [
               Text(
                 _isSaved
-                    ? (_data.diaries.isEmpty ? "Chưa có nhật ký" : "Đã lưu")
-                    : "Chưa lưu",
+                    ? (_data.diaries.isEmpty
+                          ? AppLocalizations.of(context)!.nodiary
+                          : AppLocalizations.of(context)!.savediary)
+                    : AppLocalizations.of(context)!.nosaveddiary,
                 style: TextStyle(
                   color: _isSaved
                       ? (_data.diaries.isEmpty ? Colors.grey : Colors.green)
@@ -132,7 +135,7 @@ class _DiaryState extends State<Diary> {
               ),
               IconButton(
                 icon: const Icon(Icons.delete_outline, color: Colors.red),
-                tooltip: "Xóa nhật ký",
+                tooltip: AppLocalizations.of(context)!.removediary,
                 onPressed: _clearDiary,
               ),
             ],
