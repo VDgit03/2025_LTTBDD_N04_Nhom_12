@@ -49,5 +49,9 @@
     }
   },
   "nopages": "No pages have been created yet",
-  "date": "Date"
+  "date": "Date",
+  "nodiary": "No diary yet",
+  "savediary": "Saved",
+  "nosaveddiary": "Not Saved",
+  "removediary": "Remove Diary"
 }

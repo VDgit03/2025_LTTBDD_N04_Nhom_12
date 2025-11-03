@@ -47,5 +47,9 @@
     }
   }, 
   "nopages": "Chưa có trang nào được tạo",
-  "date": "Ngày"
+  "date": "Ngày",
+  "nodiary": "Chưa có nhật ký",
+  "savediary": "Đã lưu",
+  "nosaveddiary": "Not Saved",
+  "removediary": "Remove Diary"
 }

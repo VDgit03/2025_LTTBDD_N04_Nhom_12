@@ -89,4 +89,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get date => 'Date';
+
+  @override
+  String get nodiary => 'No diary yet';
+
+  @override
+  String get savediary => 'Saved';
+
+  @override
+  String get nosaveddiary => 'Not Saved';
+
+  @override
+  String get removediary => 'Remove Diary';
 }

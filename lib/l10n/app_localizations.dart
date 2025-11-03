@@ -250,6 +250,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Date'**
   String get date;
+
+  /// No description provided for @nodiary.
+  ///
+  /// In en, this message translates to:
+  /// **'No diary yet'**
+  String get nodiary;
+
+  /// No description provided for @savediary.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get savediary;
+
+  /// No description provided for @nosaveddiary.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Saved'**
+  String get nosaveddiary;
+
+  /// No description provided for @removediary.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove Diary'**
+  String get removediary;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

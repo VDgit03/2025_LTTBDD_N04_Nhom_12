@@ -89,4 +89,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get date => 'Ngày';
+
+  @override
+  String get nodiary => 'Chưa có nhật ký';
+
+  @override
+  String get savediary => 'Đã lưu';
+
+  @override
+  String get nosaveddiary => 'Not Saved';
+
+  @override
+  String get removediary => 'Remove Diary';
 }
