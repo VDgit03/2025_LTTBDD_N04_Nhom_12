@@ -53,7 +53,7 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get list => 'Danh sách công việc';
+  String get list => 'Cuốn sổ nhật ký';
 
   @override
   String get settings => 'Cài đặt';

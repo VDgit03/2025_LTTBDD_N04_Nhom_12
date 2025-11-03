@@ -182,7 +182,7 @@ abstract class AppLocalizations {
   /// No description provided for @list.
   ///
   /// In en, this message translates to:
-  /// **'To Do List'**
+  /// **'Journey Notebook'**
   String get list;
 
   /// No description provided for @settings.

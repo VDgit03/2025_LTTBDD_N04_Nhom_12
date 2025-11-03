@@ -53,7 +53,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get list => 'To Do List';
+  String get list => 'Journey Notebook';
 
   @override
   String get settings => 'Setting';
