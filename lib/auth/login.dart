@@ -27,6 +27,7 @@ class _LoginState extends State<Login> {
           backgroundColor: Color.fromARGB(255, 105, 166, 215),
           content: Text(
             AppLocalizations.of(context)!.login_incorrect,
+            textAlign: TextAlign.center,
             style: TextStyle(fontSize: 17, color: Colors.black),
           ),
         ),
