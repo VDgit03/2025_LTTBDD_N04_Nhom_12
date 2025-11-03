@@ -83,4 +83,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String page(int _pageNumber) {
     return 'Page $_pageNumber';
   }
+
+  @override
+  String get nopages => 'No pages have been created yet';
+
+  @override
+  String get date => 'Date';
 }

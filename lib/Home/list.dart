@@ -32,7 +32,7 @@ class _My_ListState extends State<My_List> {
       child: pages.isEmpty
           ? Center(
               child: Text(
-                "Chưa có trang nào được tạo.",
+                AppLocalizations.of(context)!.nopages,
                 style: TextStyle(fontSize: 18, color: Colors.grey),
               ),
             )
@@ -74,11 +74,12 @@ class _My_ListState extends State<My_List> {
                         ),
                         Text(
                           _data.getDate(pageNum).isNotEmpty
-                              ? "Ngày: ${_data.getDate(pageNum)}"
+                              ? " ${AppLocalizations.of(context)!.date}: ${_data.getDate(pageNum)}"
                               : " ",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
+                            fontSize: 15.7,
                           ),
                         ),
                       ],

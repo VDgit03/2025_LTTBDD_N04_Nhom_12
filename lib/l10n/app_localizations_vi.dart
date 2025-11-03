@@ -83,4 +83,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String page(int _pageNumber) {
     return 'Trang $_pageNumber';
   }
+
+  @override
+  String get nopages => 'Chưa có trang nào được tạo';
+
+  @override
+  String get date => 'Ngày';
 }

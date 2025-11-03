@@ -238,6 +238,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Page {_pageNumber}'**
   String page(int _pageNumber);
+
+  /// No description provided for @nopages.
+  ///
+  /// In en, this message translates to:
+  /// **'No pages have been created yet'**
+  String get nopages;
+
+  /// No description provided for @date.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get date;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
