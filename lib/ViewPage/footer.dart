@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ck/l10n/app_localizations.dart';
-import 'SaveData.dart';
 
 class Footer extends StatefulWidget {
   final int pageNumber;

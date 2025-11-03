@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ck/l10n/app_localizations.dart';
-import 'package:mobile_ck/ViewPage/MucLuc.dart';
 
 class Dashboard extends StatelessWidget {
   final String username;
-  const Dashboard({super.key, required this.username});
+  Dashboard({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
@@ -37,19 +36,7 @@ class Dashboard extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 10),
-
-            ElevatedButton.icon(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => Mucluc()),
-                );
-              },
-              icon: Icon(Icons.menu_book_rounded, color: Colors.white),
-              label: Text("Mục lục", style: TextStyle(fontSize: 18)),
-            ),
           ],
         ),
       ),

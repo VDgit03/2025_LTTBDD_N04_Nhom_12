@@ -3,10 +3,24 @@ import 'nav.dart';
 import 'dashboard.dart';
 import 'drawer.dart';
 import 'package:mobile_ck/l10n/app_localizations.dart';
+import 'package:mobile_ck/ViewPage/SaveData.dart';
+import 'package:mobile_ck/ViewPage/page.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   final String username;
   const Homepage({super.key, required this.username});
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  final _data = SaveData();
+  late List<int> pages;
+  @override
+  void initState() {
+    super.initState();
+    pages = _data.getPagesWithContent();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,39 +29,76 @@ class Homepage extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 105, 166, 215),
         elevation: 6,
         toolbarHeight: 100,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(padding: EdgeInsets.only(left: 40)),
-            Center(
-              child: Text(
-                AppLocalizations.of(context)!.homepage,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  color: Color.fromARGB(255, 56, 56, 56),
-                ),
-              ),
-            ),
-            SizedBox(width: 40),
-          ],
+        title: Text(
+          AppLocalizations.of(context)!.homepage,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+            color: Color.fromARGB(255, 56, 56, 56),
+          ),
         ),
+        centerTitle: true,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
         ),
-        centerTitle: true,
       ),
-      drawer: MyDrawer(username: username),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 10),
-            Dashboard(username: username),
-            nav_homepage(username: username),
-          ],
-        ),
+
+      drawer: MyDrawer(username: widget.username),
+
+      body: Column(
+        children: [
+          SizedBox(height: 10),
+          Dashboard(username: widget.username),
+
+          Expanded(
+            child: pages.isEmpty
+                ? Center(
+                    child: Text(
+                      "Chưa có trang nào được tạo.",
+                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                    ),
+                  )
+                : ListView.builder(
+                    itemCount: pages.length,
+                    itemBuilder: (context, index) {
+                      final pageNum = pages[index];
+                      return Container(
+                        width: 200,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => page(
+                                  username: widget.username,
+                                  pageNumber: pageNum,
+                                ),
+                              ),
+                            );
+
+                            //load lại page
+                            setState(() {
+                              pages = _data.getPagesWithContent();
+                            });
+                          },
+                          child: Column(
+                            children: [
+                              Text("Trang $pageNum"),
+                              Text(
+                                _data.getDate(pageNum).isNotEmpty
+                                    ? "Ngày: ${_data.getDate(pageNum)}"
+                                    : "Chưa ghi ngày",
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+          ),
+
+          nav_homepage(username: widget.username),
+        ],
       ),
     );
   }
