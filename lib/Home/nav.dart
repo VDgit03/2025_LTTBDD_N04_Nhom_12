@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ck/ViewPage/page.dart';
-import 'package:mobile_ck/auth/register.dart';
 
 void next_page(BuildContext context, Widget man_hinh) {
   Navigator.push(
@@ -19,16 +18,27 @@ class nav_homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomRight,
-      child: Padding(
-        padding: EdgeInsets.only(top: 480, right: 20, bottom: 20),
-        child: ElevatedButton(
-          onPressed: () {
-            next_page(context, page(username: savedUS, pageNumber: 1));
-          },
-          child: Icon(Icons.arrow_forward),
-        ),
+    return Container(
+      height: 50,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 105, 166, 215),
+        // border: Border(top: BorderSide(color: Colors.grey)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              next_page(context, page(username: username, pageNumber: 1));
+            },
+            child: Icon(Icons.arrow_forward),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+            ),
+          ),
+        ],
       ),
     );
   }
