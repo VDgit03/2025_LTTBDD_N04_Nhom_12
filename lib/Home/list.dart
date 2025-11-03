@@ -46,7 +46,7 @@ class _My_ListState extends State<My_List> {
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 105, 166, 215),
+                      backgroundColor: Color.fromARGB(255, 161, 203, 238),
                     ),
                     onPressed: () async {
                       Navigator.push(
@@ -67,7 +67,7 @@ class _My_ListState extends State<My_List> {
                         Text(
                           AppLocalizations.of(context)!.page(pageNum),
                           style: TextStyle(
-                            color: Colors.black,
+                            color: const Color.fromARGB(255, 38, 38, 38),
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
