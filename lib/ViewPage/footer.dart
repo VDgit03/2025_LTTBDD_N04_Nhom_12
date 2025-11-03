@@ -39,6 +39,8 @@ class _FooterState extends State<Footer> {
     setState(() {
       if (_pageNumber > 1) {
         _pageNumber--;
+      } else if (_pageNumber == 1) {
+        Navigator.pop(context);
       }
     });
     if (widget.onPrevious != null) {
