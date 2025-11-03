@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_ck/Home/homepage.dart';
 import 'package:mobile_ck/l10n/app_localizations.dart';
 
 class Footer extends StatefulWidget {
+  final String username;
   final int pageNumber;
   final VoidCallback? onPrevious;
   final VoidCallback? onNext;
@@ -11,6 +13,7 @@ class Footer extends StatefulWidget {
     required this.pageNumber,
     this.onPrevious,
     this.onNext,
+    required this.username,
   });
 
   @override
@@ -40,7 +43,12 @@ class _FooterState extends State<Footer> {
       if (_pageNumber > 1) {
         _pageNumber--;
       } else if (_pageNumber == 1) {
-        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Homepage(username: widget.username),
+          ),
+        );
       }
     });
     if (widget.onPrevious != null) {

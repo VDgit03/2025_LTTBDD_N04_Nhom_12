@@ -64,14 +64,19 @@ class _TimeState extends State<Time> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.access_time, size: 35, color: Colors.white),
+          Center(child: Icon(Icons.access_time, size: 35, color: Colors.white)),
           SizedBox(width: 8),
-          Text(
-            _timeString,
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          Expanded(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                _timeString,
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
         ],

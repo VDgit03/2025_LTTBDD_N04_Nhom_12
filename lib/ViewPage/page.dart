@@ -93,6 +93,7 @@ class _pageState extends State<page> {
       ),
       // footer
       bottomNavigationBar: Footer(
+        username: username,
         pageNumber: pageNumber,
         onPrevious: () {
           if (pageNumber > 1) {

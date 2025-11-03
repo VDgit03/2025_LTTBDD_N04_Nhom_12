@@ -3,7 +3,8 @@ import 'package:mobile_ck/ViewPage/footer.dart';
 import 'package:mobile_ck/ViewPage/page.dart';
 
 class Pagecontroller extends StatefulWidget {
-  const Pagecontroller({super.key});
+  final String username;
+  const Pagecontroller({super.key, required this.username});
 
   @override
   State<Pagecontroller> createState() => _PagecontrollerState();
@@ -37,6 +38,7 @@ class _PagecontrollerState extends State<Pagecontroller> {
     return Scaffold(
       body: _pages[_currentPage],
       bottomNavigationBar: Footer(
+        username: widget.username,
         pageNumber: _currentPage + 1,
         onNext: _nextPage,
         onPrevious: _previousPage,
