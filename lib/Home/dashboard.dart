@@ -3,7 +3,7 @@ import 'package:mobile_ck/l10n/app_localizations.dart';
 
 class Dashboard extends StatelessWidget {
   final String username;
-  Dashboard({super.key, required this.username});
+  const Dashboard({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {

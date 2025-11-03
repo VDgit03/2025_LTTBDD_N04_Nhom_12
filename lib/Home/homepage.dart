@@ -63,8 +63,17 @@ class _HomepageState extends State<Homepage> {
                     itemBuilder: (context, index) {
                       final pageNum = pages[index];
                       return Container(
-                        width: 200,
+                        padding: EdgeInsets.only(
+                          left: 30,
+                          right: 30,
+                          bottom: 10,
+                        ),
+                        width: 10,
+                        height: 50,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 105, 166, 215),
+                          ),
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -81,13 +90,24 @@ class _HomepageState extends State<Homepage> {
                               pages = _data.getPagesWithContent();
                             });
                           },
-                          child: Column(
+                          child: Row(
                             children: [
-                              Text("Trang $pageNum"),
+                              Text(
+                                AppLocalizations.of(context)!.page(pageNum),
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
                               Text(
                                 _data.getDate(pageNum).isNotEmpty
                                     ? "Ngày: ${_data.getDate(pageNum)}"
-                                    : "Chưa ghi ngày",
+                                    : " ",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
